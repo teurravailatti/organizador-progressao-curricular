@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  ORGANIZADOR DE PROGRESSÃO CURRICULAR
+  DU de Langue et Cultures Brésilienne et Portugaise
+  Université Jean Moulin Lyon 3 · Département d'Études Lusophones
+
+  © 2026 Teurra Fernandes Vailatti. Todos os direitos reservados.
+
+  AUTORIA E CONCEPÇÃO
+  Concepção pedagógica, arquitetura curricular, design de interface
+  e desenvolvimento: Teurra Fernandes Vailatti, Leitora Guimarães Rosa
+  (Instituto Guimarães Rosa / Ministério das Relações Exteriores do Brasil),
+  Université Jean Moulin Lyon 3, 2024–2026.
+
+  NATUREZA DA OBRA
+  Esta ferramenta constitui obra intelectual original protegida, integrando
+  duas camadas indissociáveis: (i) software original (HTML, CSS, JavaScript)
+  e (ii) arquitetura conceitual e curricular original, incluindo a
+  categorização E/A/S (essencial / ampliação / sensibilização), o sistema
+  das seis dimensões pedagógicas, a tipologia dos eixos transversais,
+  a base de dados de itens curriculares e o sistema de afinidades temáticas.
+
+  LICENÇA
+  Esta obra é disponibilizada sob licença Creative Commons
+  Atribuição-NãoComercial-SemDerivações 4.0 Internacional (CC BY-NC-ND 4.0).
+  https://creativecommons.org/licenses/by-nc-nd/4.0/deed.pt_BR
+
+  Sob esta licença, é permitido:
+    — usar a ferramenta em contexto pedagógico não comercial;
+    — citá-la e referenciá-la em trabalhos acadêmicos, com atribuição plena.
+
+  Não é permitido, sem autorização expressa e por escrito da autora:
+    — modificar, adaptar ou criar obras derivadas;
+    — redistribuir versões alteradas;
+    — utilizar a ferramenta ou seus componentes para fins comerciais;
+    — incorporá-la, total ou parcialmente, em outros softwares, plataformas
+      ou materiais didáticos editoriais.
+
+  RESERVA DE DIREITOS DE EXPLORAÇÃO
+  A autora conserva integralmente os direitos morais e patrimoniais sobre
+  esta obra, incluindo os direitos de publicação, edição, adaptação,
+  tradução, licenciamento e exploração comercial, em qualquer suporte e
+  por qualquer meio, conhecido ou por conhecer.
+
+  CITAÇÃO ACADÊMICA RECOMENDADA
+  VAILATTI, Teurra Fernandes. Organizador de Progressão Curricular:
+  ferramenta digital de articulação curricular para o ensino de português
+  como língua estrangeira. Lyon: Leitorado Guimarães Rosa, Université
+  Jean Moulin Lyon 3, 2024–2026.
+
+  CONTATO PARA AUTORIZAÇÕES
+  [inserir endereço institucional ou e-mail de contato]
+================================================================================
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Organizador da Progressão A1.1 — Leitorado Guimarães Rosa</title>
+<meta name="author" content="Teurra Fernandes Vailatti">
+<meta name="copyright" content="© 2026 Teurra Fernandes Vailatti. Todos os direitos reservados.">
+<meta name="description" content="Organizador de Progressão Curricular do DU de Langue et Cultures Brésilienne et Portugaise — Leitorado Guimarães Rosa (IGR/MRE), Université Jean Moulin Lyon 3.">
+<meta name="license" content="CC BY-NC-ND 4.0">
+<meta name="dcterms.creator" content="Teurra Fernandes Vailatti">
+<meta name="dcterms.rights" content="© 2026 Teurra Fernandes Vailatti">
+<meta name="dcterms.rightsHolder" content="Teurra Fernandes Vailatti">
+<meta name="dcterms.license" content="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --c-verde:    #1C4A35;
+  --c-dourado:  #C9A03A;
+  --c-azul:     #1A3D6B;
+  --c-violeta:  #5A1D7A;
+  --c-ocre:     #7A3A00;
+  --c-prag:     #2A5A4A;
+  --c-fon:      #3A1A5A;
+  --c-tinta:    #2A2A2A;
+  --c-muted:    #6B6B6B;
+  --c-linha:    #E0E0E0;
+  --c-papel:    #FFFFFF;
+  --c-fundo:    #F5F4F1;
+  --c-match-bg: #DFECD4;
+  --c-match-br: #7FAA57;
+  --c-amber-bg: #FAEEC2;
+  --c-amber-br: #D9B04A;
+  --c-aula-focus: #FFF8E5;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 10pt;
+  color: var(--c-tinta);
+  background: var(--c-fundo);
+  min-height: 100vh;
+}
+
+/* ==== CABEÇALHO ==== */
+.topbar {
+  background: var(--c-verde);
+  color: white;
+  padding: 14px 22px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 3px solid var(--c-dourado);
+}
+.top-code {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28pt;
+  font-weight: 700;
+  color: var(--c-dourado);
+  line-height: 1;
+}
+.top-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15pt;
+  font-weight: 600;
+  color: white;
+  line-height: 1.15;
+}
+.top-subtitulo {
+  font-size: 8pt;
+  color: rgba(255,255,255,0.7);
+  margin-top: 3px;
+  letter-spacing: 0.04em;
+}
+.top-acoes { display: flex; gap: 8px; }
+.btn-top {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8pt;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 7px 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-top:hover { background: rgba(255,255,255,0.12); border-color: var(--c-dourado); color: var(--c-dourado); }
+
+/* ==== BARRA DE INSTRUÇÕES ==== */
+.instrucoes {
+  background: #EAF3EE;
+  border-left: 3px solid var(--c-verde);
+  padding: 10px 22px;
+  font-size: 8.8pt;
+  color: #2A3A30;
+  line-height: 1.55;
+}
+.instrucoes strong { font-weight: 600; color: var(--c-verde); }
+.instrucoes .inline-badge {
+  display: inline-block;
+  background: var(--c-match-bg);
+  color: #3A5A22;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 8.2pt;
+}
+
+/* ==== ABAS DE MÓDULOS ==== */
+.abas-modulos {
+  background: white;
+  border-bottom: 1px solid var(--c-linha);
+  padding: 0 22px;
+}
+.abas-wrap {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.abas-grupo {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 6px 0;
+}
+.abas-grupo-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--c-verde);
+  margin-right: 8px;
+  letter-spacing: 0.05em;
+}
+.abas-grupo.abas-futuro .abas-grupo-label { color: #B8B3A8; }
+.aba {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 9pt;
+  padding: 6px 14px;
+  border: 1px solid var(--c-linha);
+  background: white;
+  color: var(--c-muted);
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 3px;
+  transition: all 0.15s;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+.aba:hover:not(:disabled) {
+  background: #F5F3EE;
+  color: var(--c-verde);
+  border-color: #C9BDA0;
+}
+.aba.ativa {
+  background: var(--c-verde);
+  color: white;
+  border-color: var(--c-verde);
+  box-shadow: 0 1px 3px rgba(28,74,53,0.2);
+}
+.aba.ativa::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--c-verde);
+}
+.aba-futura {
+  opacity: 0.45;
+  cursor: not-allowed;
+  font-style: italic;
+  background: #FAF9F6;
+}
+.aba-futura::before {
+  content: '·';
+  font-size: 14pt;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+
+/* ==== LAYOUT ==== */
+.layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 0;
+  min-height: calc(100vh - 115px);
+}
+
+/* ==== BIBLIOTECA ==== */
+.biblioteca {
+  background: white;
+  border-right: 1px solid var(--c-linha);
+  padding: 14px 16px 40px;
+  overflow-y: auto;
+  max-height: calc(100vh - 115px);
+  position: sticky;
+  top: 0;
+}
+.bib-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14pt;
+  font-weight: 600;
+  color: var(--c-verde);
+  margin-bottom: 3px;
+}
+.bib-sub {
+  font-size: 8pt;
+  color: var(--c-muted);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.bib-busca {
+  width: 100%;
+  padding: 6px 9px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9pt;
+  border: 1px solid var(--c-linha);
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+.bib-busca:focus { outline: 1px solid var(--c-verde); border-color: var(--c-verde); }
+
+.categoria {
+  margin-bottom: 14px;
+  border: 1px solid var(--c-linha);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.cat-header {
+  padding: 7px 10px 6px;
+  font-size: 7pt;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+.cat-header::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 1.5px;
+  background: currentColor;
+  margin-right: 6px;
+  opacity: 0.7;
+}
+.cat-header .chev { font-size: 10pt; opacity: 0.5; transition: transform 0.2s; }
+.categoria.fechada .chev { transform: rotate(-90deg); }
+.categoria.fechada .cat-body { display: none; }
+
+.cat-prop .cat-header   { color: var(--c-azul); background: #EAEEF5; border-bottom: 1px solid #DCE4F0; }
+.cat-genre .cat-header  { color: var(--c-violeta); background: #F3EAF5; border-bottom: 1px solid #E8D8ED; }
+.cat-lexico .cat-header { color: var(--c-ocre); background: #F5EFE5; border-bottom: 1px solid #ECDFCF; }
+.cat-prag .cat-header   { color: var(--c-prag); background: #E8F0EC; border-bottom: 1px solid #D5E3DA; }
+.cat-fon .cat-header    { color: var(--c-fon); background: #EFEAF5; border-bottom: 1px solid #DDD2EB; }
+
+.cat-body { padding: 6px 8px 8px; background: #FDFCFA; }
+
+.fon-subgroup {
+  font-size: 6.4pt;
+  font-weight: 500;
+  color: var(--c-fon);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 7px 2px 3px;
+}
+
+/* ==== ITEM ARRASTÁVEL ==== */
+.item {
+  background: white;
+  border: 1px solid var(--c-linha);
+  border-left: 3px solid var(--c-linha);
+  padding: 5px 8px 5px 9px;
+  margin: 3px 0;
+  font-size: 8.5pt;
+  line-height: 1.35;
+  border-radius: 3px;
+  cursor: grab;
+  user-select: none;
+  transition: all 0.15s;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+.item:active { cursor: grabbing; }
+.item:hover { box-shadow: 0 2px 6px rgba(0,0,0,0.08); transform: translateY(-1px); }
+.item .tag-inline {
+  font-size: 6pt;
+  font-weight: 500;
+  padding: 1px 4px;
+  border-radius: 2px;
+  margin-right: 4px;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.item .tag-inline.te { background: #D8EDE2; color: #1C4A35; }
+.item .tag-inline.ta { background: #D5E3F0; color: #1A3D6B; }
+.item .tag-inline.ts { background: #F0E2D5; color: #6B3A1A; }
+.item .it-label { flex: 1; }
+.item em { font-style: italic; color: #555; }
+
+.item.cat-prop   { border-left-color: var(--c-azul); }
+.item.cat-genre  { border-left-color: var(--c-violeta); }
+.item.cat-lexico { border-left-color: var(--c-ocre); }
+.item.cat-prag   { border-left-color: var(--c-prag); }
+.item.cat-fon    { border-left-color: var(--c-fon); }
+
+.item.match {
+  background: var(--c-match-bg);
+  border-color: var(--c-match-br);
+  box-shadow: 0 0 0 1px var(--c-match-br);
+}
+.item.match-amber {
+  background: var(--c-amber-bg);
+  border-color: var(--c-amber-br);
+  box-shadow: 0 0 0 1px var(--c-amber-br);
+}
+/* Se os dois estados coexistirem, verde (mobilização) prevalece */
+.item.match.match-amber {
+  background: var(--c-match-bg);
+  border-color: var(--c-match-br);
+  box-shadow: 0 0 0 1px var(--c-match-br);
+}
+.item.hidden-search { display: none; }
+.item.dragging { opacity: 0.4; }
+/* Item clicado — epicentro dos destaques, persistente */
+.item.selecionado {
+  box-shadow: 0 0 0 2px var(--c-dourado), 0 2px 8px rgba(201,160,58,0.25);
+  background: #FFF9E8;
+  position: relative;
+  z-index: 2;
+}
+.item.selecionado::after {
+  content: '◆';
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-dourado);
+  font-size: 7pt;
+  opacity: 0.8;
+}
+.item.selecionado.in-aula::after { right: 22px; }
+.item .del-btn {
+  display: none;
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--c-muted);
+  cursor: pointer;
+  font-size: 12pt;
+  padding: 0 4px;
+  line-height: 1;
+}
+.item.in-aula .del-btn { display: block; }
+.item .del-btn:hover { color: #A33; }
+
+.add-custom {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+  padding: 0 2px;
+}
+.add-custom input {
+  flex: 1;
+  padding: 4px 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8pt;
+  border: 1px dashed var(--c-linha);
+  border-radius: 3px;
+  background: white;
+}
+.add-custom input:focus { outline: none; border-color: currentColor; }
+.add-custom button {
+  padding: 3px 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8pt;
+  font-weight: 500;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  background: white;
+  cursor: pointer;
+  color: inherit;
+}
+.add-custom button:hover { background: currentColor; color: white !important; }
+.cat-prop .add-custom button:hover   { color: white !important; background: var(--c-azul); }
+.cat-genre .add-custom button:hover  { color: white !important; background: var(--c-violeta); }
+.cat-lexico .add-custom button:hover { color: white !important; background: var(--c-ocre); }
+.cat-prag .add-custom button:hover   { color: white !important; background: var(--c-prag); }
+.cat-fon .add-custom button:hover    { color: white !important; background: var(--c-fon); }
+
+/* ==== ÁREA CENTRAL / GRADE ==== */
+.grade-area {
+  padding: 18px 22px 40px;
+  overflow-x: auto;
+}
+.grade-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14pt;
+  font-weight: 600;
+  color: var(--c-verde);
+  margin-bottom: 3px;
+}
+.grade-sub {
+  font-size: 8.5pt;
+  color: var(--c-muted);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.grade-legenda {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid var(--c-linha);
+  border-radius: 4px;
+  margin-bottom: 14px;
+  font-size: 7.8pt;
+  color: var(--c-muted);
+}
+.leg-item { display: flex; align-items: center; gap: 5px; }
+.leg-sq {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+.leg-prop   { background: var(--c-azul); }
+.leg-genre  { background: var(--c-violeta); }
+.leg-lexico { background: var(--c-ocre); }
+.leg-prag   { background: var(--c-prag); }
+.leg-fon    { background: var(--c-fon); }
+.leg-match  { background: var(--c-match-bg); border: 1px solid var(--c-match-br); }
+.leg-amber  { background: var(--c-amber-bg); border: 1px solid var(--c-amber-br); }
+
+.grade-tabela {
+  display: grid;
+  grid-template-columns: 50px 1fr 1fr;
+  gap: 2px;
+  background: var(--c-linha);
+  border: 1px solid var(--c-linha);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.grade-head {
+  background: var(--c-verde);
+  color: white;
+  padding: 10px 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 11pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.grade-head.col-num { background: #143727; font-size: 8pt; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; }
+.grade-head.col-clc, .grade-head.col-plc { flex-direction: column; gap: 2px; }
+.grade-head small {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 7.5pt;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.aula-num {
+  background: #FDFCFA;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 15pt;
+  color: var(--c-verde);
+}
+.aula-num span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 6.5pt;
+  color: var(--c-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.aula {
+  background: white;
+  padding: 8px 10px 10px;
+  min-height: 95px;
+  transition: background 0.15s;
+  cursor: pointer;
+  position: relative;
+}
+.aula:hover { background: #FAFAF6; }
+.aula.focada { background: var(--c-aula-focus); box-shadow: inset 0 0 0 2px var(--c-dourado); }
+.aula.drop-active { background: #F0F7EC; box-shadow: inset 0 0 0 2px var(--c-match-br); }
+.aula-placeholder {
+  font-size: 8pt;
+  color: #B8B3A8;
+  font-style: italic;
+  padding: 6px 0;
+  text-align: center;
+}
+
+/* ==== FOOTER ==== */
+.footer-pagina {
+  background: var(--c-verde);
+  color: rgba(255,255,255,0.8);
+  padding: 12px 22px;
+  font-size: 7.5pt;
+  line-height: 1.6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--c-dourado);
+}
+.footer-r {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 9pt;
+  color: var(--c-dourado);
+}
+.footer-autoria {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 8.5pt;
+  color: var(--c-dourado);
+  letter-spacing: 0.02em;
+  display: inline-block;
+  margin-top: 2px;
+}
+.footer-copyright {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 7pt;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.03em;
+  display: inline-block;
+  margin-top: 3px;
+}
+.footer-copyright a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255,255,255,0.4);
+}
+.footer-copyright a:hover {
+  color: var(--c-dourado);
+  border-bottom-color: var(--c-dourado);
+}
+
+/* Scrollbars discretas */
+.biblioteca::-webkit-scrollbar { width: 8px; }
+.biblioteca::-webkit-scrollbar-track { background: transparent; }
+.biblioteca::-webkit-scrollbar-thumb { background: #CFCABE; border-radius: 4px; }
+
+/* Modal de confirmação simples */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--c-verde);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 9pt;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.25s;
+  pointer-events: none;
+  z-index: 1000;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: 320px 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==== CABEÇALHO ==== -->
+<div class="topbar">
+  <div class="top-code" id="top-code">A1.1</div>
+  <div>
+    <div class="top-titulo">Organizador de Progressão Curricular</div>
+    <div class="top-subtitulo" id="top-subtitulo">Primeiros contatos com o Brasil e os mundos lusófonos · 2 × 15h · 10 aulas por curso</div>
+  </div>
+  <div class="top-acoes">
+    <button class="btn-top" onclick="exportarJSON()">Exportar</button>
+    <button class="btn-top" onclick="importarJSON()">Importar</button>
+    <button class="btn-top" onclick="imprimir()">Imprimir</button>
+    <button class="btn-top" onclick="resetarTudo()">Reiniciar</button>
+  </div>
+</div>
+
+<!-- ==== ABAS DE MÓDULOS ==== -->
+<div class="abas-modulos">
+  <div class="abas-wrap">
+    <div class="abas-grupo" id="abas-A1">
+      <span class="abas-grupo-label">A1</span>
+      <button class="aba" data-mod="A1.1" onclick="trocarModulo('A1.1')">A1.1</button>
+      <button class="aba" data-mod="A1.2" onclick="trocarModulo('A1.2')">A1.2</button>
+    </div>
+    <div class="abas-grupo abas-futuro" title="Em desenvolvimento">
+      <span class="abas-grupo-label">A2</span>
+      <button class="aba aba-futura" disabled>A2.1</button>
+      <button class="aba aba-futura" disabled>A2.2</button>
+    </div>
+    <div class="abas-grupo abas-futuro" title="Em desenvolvimento">
+      <span class="abas-grupo-label">B1</span>
+      <button class="aba aba-futura" disabled>B1.1</button>
+      <button class="aba aba-futura" disabled>B1.2</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==== INSTRUÇÕES ==== -->
+<div class="instrucoes">
+  <strong>Como usar:</strong> arraste conteúdos da biblioteca para as aulas. As afinidades seguem a arquitetura do módulo, de cima para baixo — ao <strong>clicar</strong> num <strong>propósito</strong> ou <strong>gênero</strong> (na biblioteca ou dentro de uma aula), aparecem em <span class="inline-badge">verde</span> os recursos léxico-gramaticais, pragmático-discursivos e fonético-fonológicos que ele mobiliza, e em <span class="inline-badge" style="background:var(--c-amber-bg);color:#7A5A10;">âmbar</span> a relação de interdependência entre propósito e gênero. Os destaques ficam acesos até o próximo comando, permitindo leitura calma. Um <strong>clique</strong> em área vazia de uma aula a foca (e mostra sugestões a partir do que já está nela); um <strong>duplo clique</strong> pede à ferramenta uma combinação automática, respeitando o que já está na aula e evitando repetir conteúdos de outras aulas do mesmo curso. O trabalho é salvo automaticamente no navegador.
+</div>
+
+<!-- ==== LAYOUT PRINCIPAL ==== -->
+<div class="layout">
+
+  <!-- BIBLIOTECA -->
+  <aside class="biblioteca">
+    <div class="bib-titulo">Biblioteca de conteúdos</div>
+    <div class="bib-sub">A1.1 · cinco dimensões em diálogo</div>
+    <input type="text" class="bib-busca" id="busca" placeholder="Buscar conteúdo…">
+
+    <!-- Propósitos -->
+    <div class="categoria cat-prop" data-cat="prop">
+      <div class="cat-header" onclick="toggleCat(this)">
+        <span>Propósitos comunicativos</span>
+        <span class="chev">▾</span>
+      </div>
+      <div class="cat-body" id="cat-prop-body"></div>
+    </div>
+
+    <!-- Gêneros -->
+    <div class="categoria cat-genre" data-cat="genre">
+      <div class="cat-header" onclick="toggleCat(this)">
+        <span>Gêneros discursivos</span>
+        <span class="chev">▾</span>
+      </div>
+      <div class="cat-body" id="cat-genre-body"></div>
+    </div>
+
+    <!-- Léxico-gramaticais -->
+    <div class="categoria cat-lexico" data-cat="lexico">
+      <div class="cat-header" onclick="toggleCat(this)">
+        <span>Recursos léxico-gramaticais</span>
+        <span class="chev">▾</span>
+      </div>
+      <div class="cat-body" id="cat-lexico-body"></div>
+    </div>
+
+    <!-- Pragmático-discursivos -->
+    <div class="categoria cat-prag" data-cat="prag">
+      <div class="cat-header" onclick="toggleCat(this)">
+        <span>Recursos pragmático-discursivos</span>
+        <span class="chev">▾</span>
+      </div>
+      <div class="cat-body" id="cat-prag-body"></div>
+    </div>
+
+    <!-- Fonético-fonológicos -->
+    <div class="categoria cat-fon" data-cat="fon">
+      <div class="cat-header" onclick="toggleCat(this)">
+        <span>Recursos fonético-fonológicos</span>
+        <span class="chev">▾</span>
+      </div>
+      <div class="cat-body" id="cat-fon-body"></div>
+    </div>
+  </aside>
+
+  <!-- GRADE -->
+  <main class="grade-area">
+    <div class="grade-titulo">Distribuição nas 10 aulas</div>
+    <div class="grade-sub">Dois cursos paralelos · 15h cada · arraste os conteúdos para a aula correspondente</div>
+
+    <div class="grade-legenda">
+      <div class="leg-item"><span class="leg-sq leg-prop"></span> Propósitos</div>
+      <div class="leg-item"><span class="leg-sq leg-genre"></span> Gêneros</div>
+      <div class="leg-item"><span class="leg-sq leg-lexico"></span> Léxico-gramatical</div>
+      <div class="leg-item"><span class="leg-sq leg-prag"></span> Pragmático</div>
+      <div class="leg-item"><span class="leg-sq leg-fon"></span> Fonético-fonológico</div>
+      <div class="leg-item"><span class="leg-sq leg-match"></span> Recursos mobilizados (propósito/gênero → recurso)</div>
+      <div class="leg-item"><span class="leg-sq leg-amber"></span> Interdependência propósito ↔ gênero</div>
+    </div>
+
+    <div class="grade-tabela" id="grade-tabela">
+      <div class="grade-head col-num">Aula</div>
+      <div class="grade-head col-clc">Compétences linguistiques et communication<small>CLC · 15h</small></div>
+      <div class="grade-head col-plc">Compétences linguistiques et cultures<small>PLC · 15h</small></div>
+      <!-- Aulas geradas via JS -->
+    </div>
+  </main>
+
+</div>
+
+<!-- ==== FOOTER ==== -->
+<footer class="footer-pagina">
+  <div>
+    Leitorado Guimarães Rosa · Département d'Études Lusophones · Université Jean Moulin Lyon 3<br>
+    DU de Langue et Cultures Brésilienne et Portugaise · 2024–2026<br>
+    <span class="footer-copyright">© 2026 Teurra Fernandes Vailatti · Todos os direitos reservados · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.pt_BR" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a></span>
+  </div>
+  <div class="footer-r">descobrir → circular → viver → vincular-se → interpretar → agir</div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =============================================================================
+   ORGANIZADOR DE PROGRESSÃO CURRICULAR — Lógica de aplicação
+   © 2026 Teurra Fernandes Vailatti. Todos os direitos reservados.
+
+   Concepção, arquitetura curricular e desenvolvimento:
+   Teurra Fernandes Vailatti, Leitora Guimarães Rosa (IGR/MRE),
+   Université Jean Moulin Lyon 3, 2024–2026.
+
+   Licenciado sob CC BY-NC-ND 4.0 — uso pedagógico não comercial permitido
+   com atribuição. Modificação, redistribuição de versões alteradas e uso
+   comercial requerem autorização expressa da autora.
+   https://creativecommons.org/licenses/by-nc-nd/4.0/deed.pt_BR
+
+   A base de dados curricular abaixo (itens, categorias, status E/A/S, temas
+   e relações de afinidade) constitui obra intelectual original e parte
+   indissociável desta ferramenta.
+   ============================================================================= */
+
+/* =========================================================================
+   DADOS — ITENS DA BIBLIOTECA A1.1
+   Cada item tem: id, cat, label, status (E/A/S), temas[]
+   Os temas servem para calcular afinidades (matches) entre conteúdos.
+   ========================================================================= */
+
+/* =========================================================================
+   MÓDULOS — cada um com seus temas, itens e rótulos legíveis próprios.
+   A arquitetura de camadas é partilhada entre todos os módulos.
+   ========================================================================= */
+
+const MODULOS = {
+
+  // ======================================================================
+  // MÓDULO A1.1 · Primeiros contatos com o Brasil e os mundos lusófonos
+  // Eixo: Diversidade, vozes e representações
+  // ======================================================================
+  'A1.1': {
+    codigo: 'A1.1',
+    titulo: 'Primeiros contatos com o Brasil e os mundos lusófonos',
+    eixo: 'Diversidade, vozes e representações',
+    storageKey: 'progressao_a1_1_organizador_v1',
+
+    TEMAS: {
+      APRES:   'apresentacao',
+      CUMP:    'cumprimentos',
+      POLID:   'polidez',
+      INFO:    'informacoes_pessoais',
+      GOSTOS:  'gostos',
+      ROTINA:  'rotina_agenda',
+      FUTURO:  'planos_futuros',
+      LUSOF:   'espaco_lusofono',
+      BASE:    'prosodia_base'
+    },
+
+    NOMES_TEMAS: {
+      apresentacao:         'apresentação pessoal',
+      cumprimentos:         'cumprimentos',
+      polidez:              'polidez',
+      informacoes_pessoais: 'informações pessoais',
+      gostos:               'gostos e preferências',
+      rotina_agenda:        'rotina e agenda',
+      planos_futuros:       'planos futuros',
+      espaco_lusofono:      'espaço lusófono',
+      prosodia_base:        'prosódia de base'
+    },
+
+    // Curva temática sugerida: aula (índice 0–9) → famílias de temas em ordem de preferência
+    // Reflete a progressão típica de um A1.1: do contato inicial à diversificação
+    CURVA: [
+      ['apresentacao'],                           // aula 1
+      ['apresentacao', 'informacoes_pessoais'],   // aula 2
+      ['informacoes_pessoais', 'cumprimentos'],   // aula 3
+      ['cumprimentos', 'polidez'],                // aula 4
+      ['rotina_agenda'],                          // aula 5
+      ['rotina_agenda', 'planos_futuros'],        // aula 6
+      ['gostos'],                                 // aula 7
+      ['gostos', 'planos_futuros'],               // aula 8
+      ['planos_futuros', 'espaco_lusofono'],      // aula 9
+      ['espaco_lusofono']                         // aula 10
+    ],
+
+    ITEMS: [
+      // PROPÓSITOS
+      { id:'P01', cat:'prop', label:'Apresentar-se e apresentar outra pessoa',            temas:['apresentacao'] },
+      { id:'P02', cat:'prop', label:'Cumprimentar e despedir-se',                         temas:['cumprimentos'] },
+      { id:'P03', cat:'prop', label:'Pedir licença, agradecer, desculpar-se',             temas:['polidez'] },
+      { id:'P04', cat:'prop', label:'Pedir e dar informações pessoais',                   temas:['informacoes_pessoais','apresentacao'] },
+      { id:'P05', cat:'prop', label:'Preencher formulários simples',                      temas:['informacoes_pessoais'] },
+      { id:'P06', cat:'prop', label:'Falar de gostos e preferências (incluindo negação)', temas:['gostos'] },
+      { id:'P07', cat:'prop', label:'Falar de modo simples da rotina e da agenda',        temas:['rotina_agenda'] },
+      { id:'P08', cat:'prop', label:'Expressar planos futuros muito simples',             temas:['planos_futuros'] },
+
+      // GÊNEROS
+      { id:'G01', cat:'genre', label:'Cartaz/aviso (regras da sala)',             temas:['polidez','cumprimentos'] },
+      { id:'G02', cat:'genre', label:'Formulário simples (dados pessoais)',       temas:['informacoes_pessoais','apresentacao'] },
+      { id:'G03', cat:'genre', label:'Documentos de identificação',               temas:['informacoes_pessoais','apresentacao'] },
+      { id:'G04', cat:'genre', label:'Ficha de apresentação',                     temas:['apresentacao','informacoes_pessoais'] },
+      { id:'G05', cat:'genre', label:'Diálogo de cumprimentos',                   temas:['cumprimentos','polidez'] },
+      { id:'G06', cat:'genre', label:'Agenda semanal',                            temas:['rotina_agenda','planos_futuros'] },
+      { id:'G07', cat:'genre', label:'Tabela de horários',                        temas:['rotina_agenda'] },
+      { id:'G08', cat:'genre', label:'Mapa com legendas',                         temas:['espaco_lusofono'] },
+
+      // LÉXICO-GRAMATICAIS [E]
+      { id:'L01', cat:'lexico', status:'E', label:'Presente do indicativo: <em>ser, chamar-se, morar, falar, ter</em>', temas:['apresentacao','informacoes_pessoais'] },
+      { id:'L02', cat:'lexico', status:'E', label:'Artigos definidos e indefinidos <em>(o/a, um/uma)</em>',             temas:['apresentacao','gostos'] },
+      { id:'L03', cat:'lexico', status:'E', label:'Gênero e número — concordância básica',                              temas:['apresentacao','gostos'] },
+      { id:'L04', cat:'lexico', status:'E', label:'Pronomes pessoais sujeito',                                          temas:['apresentacao'] },
+      { id:'L05', cat:'lexico', status:'E', label:'Pronomes interrogativos: <em>quem, o quê, onde, como, qual, quanto</em>', temas:['informacoes_pessoais'] },
+      { id:'L06', cat:'lexico', status:'E', label:'Negação <em>(não)</em>',                                             temas:['gostos','polidez'] },
+      { id:'L07', cat:'lexico', status:'E', label:'Preposições de origem e localização: <em>de, do/da, em, no/na, para</em>', temas:['apresentacao','espaco_lusofono','rotina_agenda'] },
+      { id:'L08', cat:'lexico', status:'E', label:'Léxico: países lusófonos, nacionalidades, línguas',                   temas:['apresentacao','espaco_lusofono'] },
+      { id:'L09', cat:'lexico', status:'E', label:'Léxico: profissões',                                                  temas:['apresentacao','informacoes_pessoais'] },
+      { id:'L10', cat:'lexico', status:'E', label:'Léxico: números',                                                     temas:['apresentacao','informacoes_pessoais','rotina_agenda'] },
+      { id:'L11', cat:'lexico', status:'E', label:'Léxico: datas, horas, dias da semana, meses',                         temas:['rotina_agenda','planos_futuros','informacoes_pessoais'] },
+      // [A]
+      { id:'L12', cat:'lexico', status:'A', label:'Presente do indicativo: <em>estar, ir</em>',                          temas:['rotina_agenda','planos_futuros'] },
+      { id:'L13', cat:'lexico', status:'A', label:'Possessivos: <em>meu/minha, teu/tua, seu/sua</em>',                   temas:['apresentacao','gostos'] },
+      { id:'L14', cat:'lexico', status:'A', label:'Léxico: <em>gostar, adorar, preferir, detestar</em>',                 temas:['gostos'] },
+      // [S]
+      { id:'L15', cat:'lexico', status:'S', label:'Reflexivos: <em>chamar-se, levantar-se, sentar-se</em>',              temas:['apresentacao','rotina_agenda'] },
+      { id:'L16', cat:'lexico', status:'S', label:'<em>Ir</em> + infinitivo <em>(vou estudar, vou viajar)</em>',         temas:['planos_futuros'] },
+
+      // PRAGMÁTICOS
+      { id:'PR01', cat:'prag', label:'Fórmulas de saudação e despedida <em>(oi / bom dia / muito prazer)</em>', temas:['cumprimentos','apresentacao'] },
+      { id:'PR02', cat:'prag', label:'Fórmulas de apresentação <em>(me chamo, sou de, moro em)</em>',            temas:['apresentacao'] },
+      { id:'PR03', cat:'prag', label:'Expressões de agradecimento, desculpa e polidez',                          temas:['polidez'] },
+      { id:'PR04', cat:'prag', label:'Estrutura de pergunta e resposta em interação simples',                    temas:['informacoes_pessoais','apresentacao','cumprimentos'] },
+
+      // FONÉTICOS — Inteligibilidade
+      { id:'F01', cat:'fon', subgroup:'INTELIGIBILIDADE', label:'Vogais orais /a, ɛ, e, i, ɔ, o, u/ — contraste com espanhol e francês',             temas:['apresentacao','prosodia_base'] },
+      { id:'F02', cat:'fon', subgroup:'INTELIGIBILIDADE', label:'Vogais nasais /ã, ẽ, ĩ, õ, ũ/ <em>(manhã, bem, sim, bom, mundo)</em>',              temas:['espaco_lusofono','apresentacao','prosodia_base'] },
+      { id:'F03', cat:'fon', subgroup:'INTELIGIBILIDADE', label:'Distinção /b/ ~ /v/ para hispanófonos <em>(bala/vala, vela/bela)</em>',             temas:['apresentacao','prosodia_base'] },
+      { id:'F04', cat:'fon', subgroup:'INTELIGIBILIDADE', label:'Identificação da sílaba tônica — contraste com padrão oxítono do francês',          temas:['apresentacao','prosodia_base'] },
+      { id:'F05', cat:'fon', subgroup:'INTELIGIBILIDADE', label:'Entonação de perguntas sim/não e qu- (padrão melódico)',                            temas:['informacoes_pessoais','cumprimentos'] },
+      // Grafia–som
+      { id:'F06', cat:'fon', subgroup:'GRAFIA–SOM',       label:'Letra H sem realização fonética <em>(homem, hino)</em>',                             temas:['apresentacao','espaco_lusofono'] },
+      { id:'F07', cat:'fon', subgroup:'GRAFIA–SOM',       label:'Dígrafos LH /ʎ/ e NH /ɲ/ <em>(melhor, mulher, banho, manhã)</em>',                    temas:['espaco_lusofono','cumprimentos'] },
+      { id:'F08', cat:'fon', subgroup:'GRAFIA–SOM',       label:'Dígrafo QU: /k/ antes de E, I <em>(quero, quilo, aqui)</em> e /kw/ antes de A, O <em>(qual, quarto, aquário)</em>', temas:['informacoes_pessoais','prosodia_base'] },
+      // Variação
+      { id:'F09', cat:'fon', subgroup:'VARIAÇÃO',         label:'Supressão do /r/ final em infinitivos na fala espontânea <em>(falar → falá)</em> — registro oral', temas:['rotina_agenda','planos_futuros','apresentacao'] },
+      { id:'F10', cat:'fon', subgroup:'VARIAÇÃO',         label:'Vocalização do /l/ em coda silábica: [l] → [w] <em>(sal, Brasil, alto)</em>',        temas:['espaco_lusofono','apresentacao'] }
+    ]
+  },
+
+  // ======================================================================
+  // MÓDULO A1.2 · Circular pelo Brasil: viagens, encontros e lazer
+  // Eixo: Circulação, vínculos e participação social
+  // ======================================================================
+  'A1.2': {
+    codigo: 'A1.2',
+    titulo: 'Circular pelo Brasil: viagens, encontros e lazer',
+    eixo: 'Circulação, vínculos e participação social',
+    storageKey: 'progressao_a1_2_organizador_v1',
+
+    TEMAS: {
+      DESLOC:   'deslocamento',       // direções, ir/vir/subir/descer
+      HOSPED:   'hospedagem',         // reserva de hotel/hostel
+      COMIDA:   'alimentacao',        // restaurante, pedidos
+      DESCR:    'descricao_lugares',  // descrever lugares
+      CONVITE:  'convite_recusa',     // sociabilidade
+      TEMPO:    'meteorologia',
+      ACAO:     'acao_em_curso',      // estar + gerúndio
+      RELATO:   'relato_viagem',      // pretérito, cartão postal
+      LAZER:    'lazer_esportes',
+      LATAM:    'america_latina',     // circulações, sociobiodiversidade
+      BASE:     'prosodia_base'
+    },
+
+    NOMES_TEMAS: {
+      deslocamento:        'deslocamento e direções',
+      hospedagem:          'hospedagem',
+      alimentacao:         'alimentação e restaurante',
+      descricao_lugares:   'descrição de lugares',
+      convite_recusa:      'convite, aceitação e recusa',
+      meteorologia:        'tempo meteorológico',
+      acao_em_curso:       'ação em curso',
+      relato_viagem:       'relato de viagem',
+      lazer_esportes:      'lazer e esportes',
+      america_latina:      'circulações latino-americanas',
+      prosodia_base:       'prosódia de base'
+    },
+
+    // Curva temática sugerida para A1.2: viagem narrativa do deslocamento ao retorno reflexivo
+    CURVA: [
+      ['deslocamento'],                            // aula 1
+      ['deslocamento', 'descricao_lugares'],       // aula 2
+      ['hospedagem'],                              // aula 3
+      ['alimentacao'],                             // aula 4
+      ['alimentacao', 'america_latina'],           // aula 5
+      ['convite_recusa'],                          // aula 6
+      ['lazer_esportes', 'meteorologia'],          // aula 7
+      ['acao_em_curso', 'lazer_esportes'],         // aula 8
+      ['relato_viagem'],                           // aula 9
+      ['relato_viagem', 'america_latina']          // aula 10
+    ],
+
+    ITEMS: [
+      // PROPÓSITOS
+      { id:'P01', cat:'prop', label:'Dar e receber informações sobre direções e deslocamentos', temas:['deslocamento'] },
+      { id:'P02', cat:'prop', label:'Fazer reservas em hotel ou hostel',                        temas:['hospedagem'] },
+      { id:'P03', cat:'prop', label:'Fazer pedidos de comida',                                  temas:['alimentacao'] },
+      { id:'P04', cat:'prop', label:'Descrever lugares de modo simples',                        temas:['descricao_lugares','america_latina'] },
+      { id:'P05', cat:'prop', label:'Convidar, aceitar e recusar',                              temas:['convite_recusa'] },
+      { id:'P06', cat:'prop', label:'Falar do tempo meteorológico',                             temas:['meteorologia'] },
+      { id:'P07', cat:'prop', label:'Descrever uma ação no momento presente',                   temas:['acao_em_curso'] },
+      { id:'P08', cat:'prop', label:'Relatar a rotina de uma viagem',                           temas:['relato_viagem'] },
+      { id:'P09', cat:'prop', label:'Falar dos esportes e atividades de lazer',                 temas:['lazer_esportes'] },
+
+      // GÊNEROS
+      { id:'G01', cat:'genre', label:'Mapa simples',                   temas:['deslocamento','america_latina'] },
+      { id:'G02', cat:'genre', label:'Diálogo de reserva',             temas:['hospedagem'] },
+      { id:'G03', cat:'genre', label:'Diálogo em restaurante',         temas:['alimentacao'] },
+      { id:'G04', cat:'genre', label:'Cartão postal',                  temas:['relato_viagem','descricao_lugares'] },
+      { id:'G05', cat:'genre', label:'Post curto de rede social',      temas:['relato_viagem','acao_em_curso','lazer_esportes'] },
+      { id:'G06', cat:'genre', label:'Convite',                        temas:['convite_recusa','lazer_esportes'] },
+      { id:'G07', cat:'genre', label:'Mensagem de WhatsApp',           temas:['convite_recusa','acao_em_curso'] },
+      { id:'G08', cat:'genre', label:'Folheto de programação',         temas:['lazer_esportes','convite_recusa'] },
+
+      // LÉXICO-GRAMATICAIS [E]
+      { id:'L01', cat:'lexico', status:'E', label:'Uso de <em>estar</em> (estado × ação em curso): <em>estou feliz, estou comendo, está chovendo</em>', temas:['acao_em_curso','meteorologia'] },
+      { id:'L02', cat:'lexico', status:'E', label:'Futuro com <em>ir</em> <em>(vou viajar)</em>',                                                   temas:['relato_viagem','lazer_esportes','convite_recusa'] },
+      { id:'L03', cat:'lexico', status:'E', label:'Presente com valor de futuro <em>(amanhã a gente sai, semana que vem eu viajo)</em>',           temas:['convite_recusa','lazer_esportes'] },
+      { id:'L04', cat:'lexico', status:'E', label:'<em>Ficar</em> — uso de localização <em>(fica ao lado, fica no centro)</em>',                    temas:['deslocamento','descricao_lugares','hospedagem'] },
+      { id:'L05', cat:'lexico', status:'E', label:'Verbos de deslocamento e localização: <em>ir, vir, subir, descer, dobrar, seguir</em>',          temas:['deslocamento'] },
+      { id:'L06', cat:'lexico', status:'E', label:'Verbos meteorológicos: <em>chover, fazer frio/calor/sol, estar nublado</em>',                    temas:['meteorologia'] },
+      { id:'L07', cat:'lexico', status:'E', label:'Conectores básicos: <em>e, mas, porque</em>',                                                    temas:['relato_viagem','descricao_lugares','convite_recusa'] },
+      { id:'L08', cat:'lexico', status:'E', label:'<em>Por que × porque</em> (uso inicial em perguntas/respostas)',                                 temas:['convite_recusa','descricao_lugares'] },
+      { id:'L09', cat:'lexico', status:'E', label:'Léxico: lugares na viagem, tipos de hospedagem',                                                 temas:['hospedagem','deslocamento'] },
+      { id:'L10', cat:'lexico', status:'E', label:'Léxico: comidas e bebidas',                                                                      temas:['alimentacao','america_latina'] },
+      { id:'L11', cat:'lexico', status:'E', label:'Léxico: esportes e atividades',                                                                  temas:['lazer_esportes'] },
+      { id:'L12', cat:'lexico', status:'E', label:'Léxico: direções <em>(direita, esquerda, entre, atrás)</em>',                                    temas:['deslocamento'] },
+      // [A]
+      { id:'L13', cat:'lexico', status:'A', label:'Pretérito perfeito — uso controlado <em>(fui, fiz, comi, cheguei, vi, tive)</em>',               temas:['relato_viagem'] },
+      { id:'L14', cat:'lexico', status:'A', label:'Diminutivo/aumentativo',                                                                         temas:['descricao_lugares','alimentacao','convite_recusa'] },
+      { id:'L15', cat:'lexico', status:'A', label:'Numerais ordinais em contextos funcionais <em>(primeiro andar, segunda saída)</em>',              temas:['deslocamento','hospedagem'] },
+      { id:'L16', cat:'lexico', status:'A', label:'Preferência, possibilidade e disponibilidade: <em>prefiro, posso, quero, tenho tempo</em>',      temas:['convite_recusa','alimentacao'] },
+      // [S]
+      { id:'L17', cat:'lexico', status:'S', label:'Abreviações da escrita digital <em>(hj, td bem, blz, vc, tb)</em>',                              temas:['convite_recusa'] },
+      { id:'L18', cat:'lexico', status:'S', label:'Interrogativas indiretas: <em>"você sabe onde fica…?"</em>',                                      temas:['deslocamento'] },
+
+      // PRAGMÁTICOS
+      { id:'PR01', cat:'prag', label:'Estratégias de convite e recusa situadas <em>(bora?, que tal…?, hoje não posso, mas…)</em>', temas:['convite_recusa'] },
+      { id:'PR02', cat:'prag', label:'Fórmulas de pedido em contexto de serviço <em>(me traz um/uma…, eu quero…, tem…?)</em>',     temas:['alimentacao','hospedagem'] },
+      { id:'PR03', cat:'prag', label:'Expressão de sequência de itinerário <em>(primeiro…, depois…, por fim…)</em>',                temas:['relato_viagem','deslocamento'] },
+
+      // FONÉTICOS — Inteligibilidade
+      { id:'F01', cat:'fon', subgroup:'INTELIGIBILIDADE', label:'Ditongos orais: /aj/ <em>(pai)</em>, /ej/ <em>(lei)</em>, /ow/ <em>(roupa)</em>, /aw/ <em>(aula)</em>', temas:['descricao_lugares','prosodia_base'] },
+      { id:'F02', cat:'fon', subgroup:'INTELIGIBILIDADE', label:'Ditongos nasais: /ãw/ <em>(não, mão)</em>, /ɐ̃j̃/ <em>(mãe, alemães)</em>, /õj̃/ <em>(canções)</em>, /ũj̃/ <em>(muito)</em>', temas:['convite_recusa','prosodia_base'] },
+      { id:'F03', cat:'fon', subgroup:'INTELIGIBILIDADE', label:'R em início de palavra e RR intervocálico — distribuição posicional (francófonos)', temas:['relato_viagem','prosodia_base'] },
+      { id:'F04', cat:'fon', subgroup:'INTELIGIBILIDADE', label:'/ɾ/ intervocálico <em>(caro, hora, parar)</em> — distinto de /ʁ/ pelo ponto e modo de articulação', temas:['hospedagem','relato_viagem','prosodia_base'] },
+      // Grafia–som
+      { id:'F05', cat:'fon', subgroup:'GRAFIA–SOM', label:'S: [z] intervocálico <em>(casa, mesa)</em> — hispanófonos leem como [s]', temas:['descricao_lugares','hospedagem'] },
+      { id:'F06', cat:'fon', subgroup:'GRAFIA–SOM', label:'G antes de e/i: /ʒ/ <em>(gente, agência)</em>; antes de a/o/u: /g/ <em>(garrafa, amiga)</em>', temas:['alimentacao','convite_recusa'] },
+      { id:'F07', cat:'fon', subgroup:'GRAFIA–SOM', label:'J: /ʒ/ em todos os contextos <em>(já, hoje, janela)</em> — diferente do espanhol [x]', temas:['convite_recusa','acao_em_curso'] },
+      { id:'F08', cat:'fon', subgroup:'GRAFIA–SOM', label:'Til (~) como sinal gráfico de nasalização <em>(irmã, mão, mãe)</em> e vogal + M/N antes de consoante <em>(campo, vento, cinto, ombro)</em>', temas:['descricao_lugares','prosodia_base'] },
+      { id:'F09', cat:'fon', subgroup:'GRAFIA–SOM', label:'Acento agudo (´) em vogal aberta e tônica <em>(pé, avó, café)</em>; circunflexo (^) em vogal fechada ou nasalada <em>(pêssego, vovô, lâmpada)</em>', temas:['alimentacao','prosodia_base'] },
+      // Variação
+      { id:'F10', cat:'fon', subgroup:'VARIAÇÃO', label:'Palatalização de /t,d/ diante de /i/ — mais sistemática no Sudeste e Centro-Oeste',           temas:['relato_viagem','acao_em_curso'] },
+      { id:'F11', cat:'fon', subgroup:'VARIAÇÃO', label:'Repetição de <em>"o que que"</em> em perguntas informais cotidianas',                          temas:['convite_recusa','deslocamento'] },
+      { id:'F12', cat:'fon', subgroup:'VARIAÇÃO', label:'Redução silábica em fala espontânea: <em>para → pra, está → tá, você → cê</em>',               temas:['convite_recusa','acao_em_curso'] }
+    ]
+  }
+};
+
+const CATEGORIAS_INFO = {
+  prop:   { ordem:1 },
+  genre:  { ordem:2 },
+  lexico: { ordem:3 },
+  prag:   { ordem:4 },
+  fon:    { ordem:5 }
+};
+
+/* Arquitetura do módulo em três camadas:
+   - Superior (fixa, não representada como items): dimensão sociocultural
+   - Intermediária: propósitos ↔ gêneros (interdependência)
+   - Inferior: recursos léxico-gramaticais, pragmáticos, fonético-fonológicos
+   A leitura das afinidades é sempre de cima para baixo. */
+const CAMADAS = {
+  prop:   'intermediaria',
+  genre:  'intermediaria',
+  lexico: 'inferior',
+  prag:   'inferior',
+  fon:    'inferior'
+};
+
+/* =========================================================================
+   ESTADO — um STATE separado por módulo, alternáveis via abas
+   ========================================================================= */
+const CURSOS = ['CLC', 'PLC'];
+const NUM_AULAS = 10;
+const MODULOS_DISPONIVEIS = ['A1.1', 'A1.2'];
+
+// Módulo ativo (persistido entre sessões)
+let moduloAtivo = localStorage.getItem('progressao_modulo_ativo') || 'A1.1';
+if (!MODULOS_DISPONIVEIS.includes(moduloAtivo)) moduloAtivo = 'A1.1';
+
+// Estados independentes por módulo
+const STATES = {};
+MODULOS_DISPONIVEIS.forEach(key => {
+  STATES[key] = {
+    aulas: {
+      CLC: Array.from({length: NUM_AULAS}, () => []),
+      PLC: Array.from({length: NUM_AULAS}, () => [])
+    },
+    customItems: [],
+    aulaFocada: null,
+    itemSelecionado: null
+  };
+});
+
+// Getters convenientes para o módulo atualmente ativo
+function STATE()       { return STATES[moduloAtivo]; }
+function MOD()         { return MODULOS[moduloAtivo]; }
+function ITEMS_BASE()  { return MOD().ITEMS; }
+function NOMES_TEMAS() { return MOD().NOMES_TEMAS; }
+function TEMAS_MOD()   { return MOD().TEMAS; }
+function CURVA_MOD()   { return MOD().CURVA || []; }
+function STORAGE_KEY() { return MOD().storageKey; }
+
+let DRAGGING = null;  // { tipo:'biblioteca'|'aula', itemId, origem?:{curso,aula,instanceId} }
+
+/* =========================================================================
+   SALVAMENTO
+   ========================================================================= */
+function salvar() {
+  try {
+    localStorage.setItem(STORAGE_KEY(), JSON.stringify(STATE()));
+  } catch(e) { console.warn('Falha ao salvar:', e); }
+}
+
+function carregar() {
+  // Carrega o estado de CADA módulo a partir de sua própria storage key
+  MODULOS_DISPONIVEIS.forEach(key => {
+    try {
+      const raw = localStorage.getItem(MODULOS[key].storageKey);
+      if (raw) {
+        const loaded = JSON.parse(raw);
+        if (loaded.aulas) STATES[key].aulas = loaded.aulas;
+        if (loaded.customItems) STATES[key].customItems = loaded.customItems;
+      }
+    } catch(e) { console.warn('Falha ao carregar módulo', key, ':', e); }
+  });
+}
+
+/* =========================================================================
+   UTILITÁRIOS
+   ========================================================================= */
+function todosItens() {
+  return [...ITEMS_BASE(), ...STATE().customItems];
+}
+
+function getItem(id) {
+  return todosItens().find(i => i.id === id);
+}
+
+function novoId() {
+  return 'inst_' + Date.now() + '_' + Math.random().toString(36).slice(2,7);
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+/* =========================================================================
+   RENDER — BIBLIOTECA
+   ========================================================================= */
+function renderBiblioteca() {
+  // Limpar bodies
+  ['prop','genre','lexico','prag','fon'].forEach(cat => {
+    document.getElementById('cat-' + cat + '-body').innerHTML = '';
+  });
+
+  // Organizar items por categoria (ITEMS base + customItems)
+  const porCat = { prop:[], genre:[], lexico:[], prag:[], fon:[] };
+  todosItens().forEach(it => {
+    if (porCat[it.cat]) porCat[it.cat].push(it);
+  });
+
+  // Renderizar cada categoria
+  ['prop','genre','lexico','prag','fon'].forEach(cat => {
+    const body = document.getElementById('cat-' + cat + '-body');
+
+    // Fonéticos: agrupar por subgroup
+    if (cat === 'fon') {
+      const subgroups = {};
+      porCat[cat].forEach(it => {
+        const sg = it.subgroup || 'OUTROS';
+        if (!subgroups[sg]) subgroups[sg] = [];
+        subgroups[sg].push(it);
+      });
+      Object.keys(subgroups).forEach(sg => {
+        const h = document.createElement('div');
+        h.className = 'fon-subgroup';
+        h.textContent = sg;
+        body.appendChild(h);
+        subgroups[sg].forEach(it => body.appendChild(criarElementoItem(it, false)));
+      });
+    } else {
+      porCat[cat].forEach(it => body.appendChild(criarElementoItem(it, false)));
+    }
+
+    // Campo "adicionar customizado"
+    const addDiv = document.createElement('div');
+    addDiv.className = 'add-custom';
+    addDiv.innerHTML = `
+      <input type="text" placeholder="+ conteúdo próprio…" id="custom-input-${cat}">
+      <button onclick="adicionarCustom('${cat}')">Adicionar</button>
+    `;
+    body.appendChild(addDiv);
+    // Enter para adicionar
+    const inp = addDiv.querySelector('input');
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter') { e.preventDefault(); adicionarCustom(cat); }
+    });
+  });
+
+  // Aplicar destaque de matches baseado no DRAGGING ou na aulaFocada
+  atualizarMatches();
+}
+
+function criarElementoItem(item, emAula, instanceId) {
+  const div = document.createElement('div');
+  div.className = 'item cat-' + item.cat;
+  if (emAula) div.classList.add('in-aula');
+  div.draggable = true;
+  div.dataset.itemId = item.id;
+  if (instanceId) div.dataset.instanceId = instanceId;
+
+  // Marcar como selecionado se for o item em foco atual
+  const sel = STATE().itemSelecionado;
+  if (sel && sel.itemId === item.id) {
+    if (emAula && sel.origem === 'aula' && sel.instanceId === instanceId) {
+      div.classList.add('selecionado');
+    } else if (!emAula && sel.origem === 'biblioteca') {
+      div.classList.add('selecionado');
+    }
+  }
+
+  let statusTag = '';
+  if (item.status === 'E') statusTag = '<span class="tag-inline te">E</span>';
+  else if (item.status === 'A') statusTag = '<span class="tag-inline ta">A</span>';
+  else if (item.status === 'S') statusTag = '<span class="tag-inline ts">S</span>';
+
+  // Botão X: aparece em itens nas aulas, ou em itens customizados na biblioteca
+  const mostrarDel = emAula || (!emAula && item.custom);
+  const delBtn = mostrarDel ? '<button class="del-btn" title="Remover">×</button>' : '';
+
+  div.innerHTML = `${statusTag}<span class="it-label">${item.label}</span>${delBtn}`;
+  // Em customizado da biblioteca, sinalizar visualmente
+  if (!emAula && item.custom) div.classList.add('in-aula');  // reutiliza CSS para mostrar X
+
+  // Click em item: seleciona (mantém destaques até próxima ação)
+  div.addEventListener('click', e => {
+    // Ignorar cliques no botão X
+    if (e.target.closest('.del-btn')) return;
+    e.stopPropagation();  // não propagar para a aula (evita foco indesejado)
+    selecionarItem(item.id, emAula ? 'aula' : 'biblioteca',
+      emAula ? {
+        curso: div.closest('.aula').dataset.curso,
+        aula: parseInt(div.closest('.aula').dataset.aula, 10),
+        instanceId: instanceId
+      } : {});
+  });
+
+  // Drag events
+  div.addEventListener('dragstart', e => {
+    if (emAula) {
+      DRAGGING = {
+        tipo: 'aula',
+        itemId: item.id,
+        origem: {
+          curso: div.closest('.aula').dataset.curso,
+          aula: parseInt(div.closest('.aula').dataset.aula, 10),
+          instanceId: instanceId
+        }
+      };
+    } else {
+      DRAGGING = { tipo: 'biblioteca', itemId: item.id };
+    }
+    div.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'copyMove';
+    // preciso setar algum data para o drag funcionar em alguns navegadores
+    try { e.dataTransfer.setData('text/plain', item.id); } catch(err){}
+    atualizarMatches();
+  });
+
+  div.addEventListener('dragend', () => {
+    div.classList.remove('dragging');
+    DRAGGING = null;
+    // Remove qualquer drop-active
+    document.querySelectorAll('.aula.drop-active').forEach(a => a.classList.remove('drop-active'));
+    atualizarMatches();
+  });
+
+  // Botão remover
+  if (mostrarDel) {
+    div.querySelector('.del-btn').addEventListener('click', e => {
+      e.stopPropagation();
+      if (emAula) {
+        const curso = div.closest('.aula').dataset.curso;
+        const aula = parseInt(div.closest('.aula').dataset.aula, 10);
+        STATE().aulas[curso][aula] = STATE().aulas[curso][aula].filter(i => i.instanceId !== instanceId);
+        // Se o item selecionado era esta instância, limpa a seleção
+        const s = STATE().itemSelecionado;
+        if (s && s.origem === 'aula' && s.instanceId === instanceId) {
+          STATE().itemSelecionado = null;
+        }
+      } else if (item.custom) {
+        // Apaga o customizado da biblioteca — e também de todas as aulas onde ele esteja
+        if (!confirm('Apagar este conteúdo próprio? Ele será removido de todas as aulas.')) return;
+        STATE().customItems = STATE().customItems.filter(ci => ci.id !== item.id);
+        CURSOS.forEach(c => {
+          STATE().aulas[c] = STATE().aulas[c].map(aula => aula.filter(i => i.itemId !== item.id));
+        });
+        // Se o item selecionado era este customizado, limpa
+        if (STATE().itemSelecionado && STATE().itemSelecionado.itemId === item.id) {
+          STATE().itemSelecionado = null;
+        }
+      }
+      salvar();
+      renderBiblioteca();
+      renderGrade();
+      atualizarMatches();
+    });
+  }
+
+  return div;
+}
+
+function adicionarCustom(cat) {
+  const input = document.getElementById('custom-input-' + cat);
+  const valor = input.value.trim();
+  if (!valor) return;
+  const id = 'C_' + cat + '_' + Date.now();
+  STATE().customItems.push({
+    id,
+    cat,
+    label: valor + ' <span style="font-size:6.5pt;color:#999;font-style:italic;">(meu)</span>',
+    temas: [],  // sem temas por padrão; o professor pode considerar manualmente
+    custom: true
+  });
+  input.value = '';
+  salvar();
+  renderBiblioteca();
+  toast('Conteúdo adicionado à categoria');
+}
+
+function toggleCat(header) {
+  header.parentElement.classList.toggle('fechada');
+}
+
+/* =========================================================================
+   RENDER — GRADE
+   ========================================================================= */
+function renderGrade() {
+  const tabela = document.getElementById('grade-tabela');
+  // Remover aulas existentes (manter só os 3 headers)
+  [...tabela.querySelectorAll('.aula-num, .aula')].forEach(el => el.remove());
+
+  for (let a = 0; a < NUM_AULAS; a++) {
+    // Número
+    const num = document.createElement('div');
+    num.className = 'aula-num';
+    num.innerHTML = `${a+1}<span>Aula</span>`;
+    tabela.appendChild(num);
+
+    // CLC
+    tabela.appendChild(criarAula('CLC', a));
+    // PLC
+    tabela.appendChild(criarAula('PLC', a));
+  }
+}
+
+function criarAula(curso, aula) {
+  const div = document.createElement('div');
+  div.className = 'aula';
+  div.dataset.curso = curso;
+  div.dataset.aula = aula;
+  if (STATE().aulaFocada && STATE().aulaFocada.curso === curso && STATE().aulaFocada.aula === aula) {
+    div.classList.add('focada');
+  }
+
+  const items = STATE().aulas[curso][aula];
+  if (items.length === 0) {
+    const ph = document.createElement('div');
+    ph.className = 'aula-placeholder';
+    ph.textContent = 'arraste conteúdos aqui';
+    div.appendChild(ph);
+  } else {
+    items.forEach(inst => {
+      const item = getItem(inst.itemId);
+      if (!item) return;
+      div.appendChild(criarElementoItem(item, true, inst.instanceId));
+    });
+  }
+
+  // Timer para diferenciar click simples de duplo-clique (evita flicker de foco)
+  let _clickTimer = null;
+
+  // Click para focar (com pequeno delay para não brigar com dblclick)
+  div.addEventListener('click', e => {
+    if (e.target.closest('.item')) return;
+    if (_clickTimer) {
+      clearTimeout(_clickTimer);
+      _clickTimer = null;
+      return;  // segundo clique: deixa o dblclick tratar
+    }
+    _clickTimer = setTimeout(() => {
+      _clickTimer = null;
+      focarAula(curso, aula);
+    }, 230);
+  });
+
+  // Duplo clique: gerar combinação automática para essa aula
+  div.addEventListener('dblclick', e => {
+    if (e.target.closest('.item')) return;
+    e.preventDefault();
+    if (_clickTimer) { clearTimeout(_clickTimer); _clickTimer = null; }
+    gerarCombinacao(curso, aula);
+  });
+
+  // Drag & drop
+  div.addEventListener('dragover', e => {
+    if (!DRAGGING) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = DRAGGING.tipo === 'aula' ? 'move' : 'copy';
+    div.classList.add('drop-active');
+  });
+  div.addEventListener('dragleave', e => {
+    if (e.target === div) div.classList.remove('drop-active');
+  });
+  div.addEventListener('drop', e => {
+    e.preventDefault();
+    div.classList.remove('drop-active');
+    if (!DRAGGING) return;
+    const { itemId, tipo, origem } = DRAGGING;
+
+    if (tipo === 'biblioteca') {
+      // Evitar duplicatas na mesma aula
+      if (!STATE().aulas[curso][aula].some(i => i.itemId === itemId)) {
+        STATE().aulas[curso][aula].push({ instanceId: novoId(), itemId });
+      }
+    } else if (tipo === 'aula') {
+      // Mover: remover da origem, adicionar aqui (se não for mesma aula)
+      if (origem.curso === curso && origem.aula === aula) return;
+      STATE().aulas[origem.curso][origem.aula] = STATE().aulas[origem.curso][origem.aula].filter(i => i.instanceId !== origem.instanceId);
+      if (!STATE().aulas[curso][aula].some(i => i.itemId === itemId)) {
+        STATE().aulas[curso][aula].push({ instanceId: novoId(), itemId });
+      }
+    }
+    salvar();
+    renderGrade();
+    atualizarMatches();
+  });
+
+  return div;
+}
+
+/* =========================================================================
+   FOCO EM AULA + MATCHES
+   ========================================================================= */
+function focarAula(curso, aula) {
+  // Focar aula limpa a seleção de item (contextos mutuamente exclusivos)
+  STATE().itemSelecionado = null;
+  if (STATE().aulaFocada && STATE().aulaFocada.curso === curso && STATE().aulaFocada.aula === aula) {
+    // Clicar de novo desfoca
+    STATE().aulaFocada = null;
+  } else {
+    STATE().aulaFocada = { curso, aula };
+  }
+  renderBiblioteca();
+  renderGrade();
+  atualizarMatches();
+}
+
+/* Selecionar um item por clique — os destaques permanecem até nova ação.
+   origem: 'biblioteca' | 'aula'
+   contexto: para aula, inclui { curso, aula, instanceId } */
+function selecionarItem(itemId, origem, contexto = {}) {
+  const sel = STATE().itemSelecionado;
+  const mesmoItem = sel &&
+    sel.itemId === itemId &&
+    sel.origem === origem &&
+    sel.instanceId === contexto.instanceId &&
+    sel.curso === contexto.curso &&
+    sel.aula === contexto.aula;
+
+  if (mesmoItem) {
+    // Clicar de novo no mesmo item desseleciona
+    STATE().itemSelecionado = null;
+  } else {
+    STATE().itemSelecionado = {
+      itemId,
+      origem,
+      curso: contexto.curso,
+      aula: contexto.aula,
+      instanceId: contexto.instanceId
+    };
+    // Seleção é mutuamente exclusiva com foco de aula
+    STATE().aulaFocada = null;
+  }
+  renderBiblioteca();
+  renderGrade();
+  atualizarMatches();
+}
+
+/* =========================================================================
+   COMBINAÇÃO AUTOMÁTICA (duplo clique em uma aula)
+   Monta uma constelação temática coerente, respeitando o que já está na
+   aula e evitando repetir conteúdos de outras aulas do mesmo curso.
+   ========================================================================= */
+function gerarCombinacao(curso, aula) {
+  const cursoParalelo = curso === 'CLC' ? 'PLC' : 'CLC';
+
+  /* ----------------------------------------------------------------
+     CATEGORIAS EXCLUSIVAS POR CURSO (cada item aparece 1× no curso)
+     - Propósitos comunicativos: o "agir" da aula
+     - Gêneros discursivos: a materialização textual
+     - Pragmáticos: o repertório interacional
+     ---------------------------------------------------------------- */
+  const CATS_UNICAS_NO_CURSO = new Set(['prop', 'genre', 'prag']);
+
+  /* ----------------------------------------------------------------
+     CATEGORIAS RECORRENTES (podem aparecer em até 2 aulas do curso)
+     - Léxico-gramaticais: revisitar verbos, léxico recorrente
+     - Fonético-fonológicos: pronúncia exige reincidência
+     ---------------------------------------------------------------- */
+  const LIMITE_RECORRENCIA = 2;
+  const CATS_RECORRENTES = new Set(['lexico', 'fon']);
+
+  /* ----------------------------------------------------------------
+     CATEGORIAS BLOQUEADAS NA AULA PARALELA (mesma posição da grade)
+     - Propósitos e gêneros: rosto da aula → não se repetem em CLC↔PLC
+     - Pragmáticos: também variam para complementaridade
+     - Léxico/fon: podem coincidir entre cursos (recursos fundacionais)
+     ---------------------------------------------------------------- */
+  const CATS_BLOQUEADAS_NO_PARALELO = new Set(['prop', 'genre', 'prag']);
+
+  /* ----------------------------------------------------------------
+     1) ITENS JÁ USADOS EM OUTRAS AULAS DO MESMO CURSO
+     ---------------------------------------------------------------- */
+  const contagemItensCurso = {};   // itemId → vezes usado em OUTRAS aulas
+  const contagemTemasCurso = {};
+  for (let i = 0; i < NUM_AULAS; i++) {
+    if (i === aula) continue;
+    STATE().aulas[curso][i].forEach(inst => {
+      contagemItensCurso[inst.itemId] = (contagemItensCurso[inst.itemId] || 0) + 1;
+      const it = getItem(inst.itemId);
+      if (it && it.temas) {
+        it.temas.forEach(t => {
+          contagemTemasCurso[t] = (contagemTemasCurso[t] || 0) + 1;
+        });
+      }
+    });
+  }
+
+  /* ----------------------------------------------------------------
+     2) ITENS NA AULA PARALELA (mesma posição em CLC↔PLC)
+     ---------------------------------------------------------------- */
+  const usadosNoParalelo = new Set();
+  const temasNoParalelo = {};
+  STATE().aulas[cursoParalelo][aula].forEach(inst => {
+    const it = getItem(inst.itemId);
+    if (!it) return;
+    if (CATS_BLOQUEADAS_NO_PARALELO.has(it.cat)) {
+      usadosNoParalelo.add(inst.itemId);
+    }
+    if (it.temas) {
+      it.temas.forEach(t => {
+        temasNoParalelo[t] = (temasNoParalelo[t] || 0) + 1;
+      });
+    }
+  });
+
+  /* ----------------------------------------------------------------
+     3) ITENS JÁ NA AULA ATUAL
+     ---------------------------------------------------------------- */
+  const jaNaAula = new Set(STATE().aulas[curso][aula].map(i => i.itemId));
+  const temasNaAula = {};
+  STATE().aulas[curso][aula].forEach(inst => {
+    const it = getItem(inst.itemId);
+    if (it && it.temas) {
+      it.temas.forEach(t => {
+        temasNaAula[t] = (temasNaAula[t] || 0) + 1;
+      });
+    }
+  });
+
+  /* ----------------------------------------------------------------
+     4) DETERMINAÇÃO DO TEMA-ÂNCORA — hierarquia de 4 casos
+     
+     (a) aula atual já tem propósito/gênero/pragmático → tema mais
+         frequente entre eles (preserva intenção do professor)
+     (b) curva temática sugerida para esta posição da aula → escolhe
+         o tema da curva que tenha itens disponíveis e seja menos
+         trabalhado (no curso atual)
+     (c) qualquer tema disponível menos trabalhado nos dois cursos
+     (d) sem tema viável → toast de aviso
+     ---------------------------------------------------------------- */
+  let temaAncora = null;
+  let origemTema = '';
+
+  // --- (a) tema da aula atual ---
+  // Considera apenas categorias "rosto" (prop/genre/prag) para inferir
+  // intenção; léxico/fon costumam ser polivalentes
+  const temasDeRosto = {};
+  STATE().aulas[curso][aula].forEach(inst => {
+    const it = getItem(inst.itemId);
+    if (!it || !it.temas) return;
+    if (CATS_UNICAS_NO_CURSO.has(it.cat)) {
+      it.temas.forEach(t => {
+        if (t !== TEMAS_MOD().BASE) {
+          temasDeRosto[t] = (temasDeRosto[t] || 0) + 1;
+        }
+      });
+    }
+  });
+  const temasRostoOrdenados = Object.keys(temasDeRosto)
+    .sort((a, b) => temasDeRosto[b] - temasDeRosto[a]);
+
+  if (temasRostoOrdenados.length > 0) {
+    temaAncora = temasRostoOrdenados[0];
+    origemTema = 'aula atual';
+  }
+  // Fallback: se só há léxico/fon, usa tema mais frequente entre todos
+  else if (Object.keys(temasNaAula).filter(t => t !== TEMAS_MOD().BASE).length > 0) {
+    const todos = Object.keys(temasNaAula).filter(t => t !== TEMAS_MOD().BASE);
+    temaAncora = todos.sort((a, b) => temasNaAula[b] - temasNaAula[a])[0];
+    origemTema = 'aula atual (recursos)';
+  }
+
+  // --- (b) curva temática sugerida ---
+  if (!temaAncora) {
+    const familiaSugerida = CURVA_MOD()[aula] || [];
+    // Filtrar quais temas da família ainda têm propósitos/gêneros disponíveis
+    const candidatosCurva = familiaSugerida.filter(t => {
+      const propDisp = ITEMS_BASE().some(it =>
+        it.cat === 'prop' && it.temas && it.temas.includes(t) &&
+        (contagemItensCurso[it.id] || 0) === 0 &&
+        !usadosNoParalelo.has(it.id) && !jaNaAula.has(it.id)
+      );
+      const genreDisp = ITEMS_BASE().some(it =>
+        it.cat === 'genre' && it.temas && it.temas.includes(t) &&
+        (contagemItensCurso[it.id] || 0) === 0 &&
+        !usadosNoParalelo.has(it.id) && !jaNaAula.has(it.id)
+      );
+      return propDisp || genreDisp;
+    });
+
+    if (candidatosCurva.length > 0) {
+      // Dentro da família, prefere o menos trabalhado no curso atual
+      candidatosCurva.sort((a, b) => 
+        (contagemTemasCurso[a] || 0) - (contagemTemasCurso[b] || 0)
+      );
+      temaAncora = candidatosCurva[0];
+      origemTema = 'curva sugerida';
+    }
+  }
+
+  // --- (c) qualquer tema livre, menos trabalhado nos dois cursos ---
+  if (!temaAncora) {
+    const todos = Object.values(TEMAS_MOD())
+      .filter(t => t !== TEMAS_MOD().BASE)
+      .sort((a, b) => {
+        const tA = (contagemTemasCurso[a] || 0) + (temasNoParalelo[a] || 0) * 0.3;
+        const tB = (contagemTemasCurso[b] || 0) + (temasNoParalelo[b] || 0) * 0.3;
+        return tA - tB;
+      });
+    for (const t of todos) {
+      const temPropOuGenre = ITEMS_BASE().some(it =>
+        (it.cat === 'prop' || it.cat === 'genre') &&
+        it.temas && it.temas.includes(t) &&
+        (contagemItensCurso[it.id] || 0) === 0 &&
+        !usadosNoParalelo.has(it.id) && !jaNaAula.has(it.id)
+      );
+      if (temPropOuGenre) { temaAncora = t; origemTema = 'tema livre'; break; }
+    }
+  }
+
+  // --- (d) nada disponível ---
+  if (!temaAncora) {
+    toast('Todas as combinações temáticas já foram trabalhadas em outras aulas.');
+    return;
+  }
+
+  /* ----------------------------------------------------------------
+     5) ALVOS DE PREENCHIMENTO POR CATEGORIA
+     
+     Inspirado no JSON-modelo da usuária: aulas têm 4–7 itens, com
+     distribuição irregular entre categorias. Pragmáticos e fonéticos
+     aparecem em parte das aulas, não em todas.
+     ---------------------------------------------------------------- */
+  const contaNaAula = { prop:0, genre:0, lexico:0, prag:0, fon:0 };
+  STATE().aulas[curso][aula].forEach(inst => {
+    const it = getItem(inst.itemId);
+    if (it && contaNaAula[it.cat] !== undefined) contaNaAula[it.cat]++;
+  });
+
+  // Alvos: o que tipicamente uma aula deve conter (não é teto)
+  const alvos = {
+    prop:   2,                                // 1–2 propósitos
+    genre:  1 + (Math.random() < 0.4 ? 1 : 0), // 1–2 gêneros (60% só 1)
+    lexico: 2 + (Math.random() < 0.5 ? 1 : 0), // 2–3 léxicos
+    prag:   Math.random() < 0.5 ? 1 : 0,       // 50% chance de ter pragmático
+    fon:    Math.random() < 0.6 ? (1 + (Math.random() < 0.3 ? 1 : 0)) : 0  // 60% chance, 1–2 fonéticos
+  };
+
+  /* ----------------------------------------------------------------
+     6) SELEÇÃO PRIORIZADA DE ITENS POR CATEGORIA
+     ---------------------------------------------------------------- */
+  const selecionar = (cat, quantas) => {
+    if (quantas <= 0) return [];
+    const ehUnica       = CATS_UNICAS_NO_CURSO.has(cat);
+    const ehRecorrente  = CATS_RECORRENTES.has(cat);
+    const bloqueiaParal = CATS_BLOQUEADAS_NO_PARALELO.has(cat);
+
+    let pool = ITEMS_BASE().filter(it => {
+      if (it.cat !== cat) return false;
+      if (it.custom) return false;
+      if (jaNaAula.has(it.id)) return false;
+      // Bloqueia itens da aula paralela apenas em categorias que devem variar
+      if (bloqueiaParal && usadosNoParalelo.has(it.id)) return false;
+      // Limite de uso no curso: únicas = 1×, recorrentes = LIMITE_RECORRENCIA
+      const usoCurso = contagemItensCurso[it.id] || 0;
+      if (ehUnica && usoCurso >= 1) return false;
+      if (ehRecorrente && usoCurso >= LIMITE_RECORRENCIA) return false;
+      // Filtro temático: tema-âncora OU prosódia de base (só fon)
+      if (!it.temas) return false;
+      const temAncora = it.temas.includes(temaAncora);
+      const ehBase    = (cat === 'fon' && it.temas.includes(TEMAS_MOD().BASE));
+      return temAncora || ehBase;
+    });
+
+    pool.sort((a, b) => {
+      // 1. Itens com tema-âncora primeiro (vs. só base)
+      const aAncora = a.temas.includes(temaAncora) ? 0 : 1;
+      const bAncora = b.temas.includes(temaAncora) ? 0 : 1;
+      if (aAncora !== bAncora) return aAncora - bAncora;
+      // 2. Status: E > A > S
+      const ord = { E:0, A:1, S:2 };
+      const aS = ord[a.status] ?? 3;
+      const bS = ord[b.status] ?? 3;
+      if (aS !== bS) return aS - bS;
+      // 3. Recorrentes: prefere menos usado
+      if (ehRecorrente) {
+        const usoA = contagemItensCurso[a.id] || 0;
+        const usoB = contagemItensCurso[b.id] || 0;
+        if (usoA !== usoB) return usoA - usoB;
+      }
+      // 4. Aleatoriza dentro do mesmo nível para variar entre gerações
+      return Math.random() - 0.5;
+    });
+
+    return pool.slice(0, quantas);
+  };
+
+  const novos = [
+    ...selecionar('prop',   alvos.prop   - contaNaAula.prop),
+    ...selecionar('genre',  alvos.genre  - contaNaAula.genre),
+    ...selecionar('lexico', alvos.lexico - contaNaAula.lexico),
+    ...selecionar('prag',   alvos.prag   - contaNaAula.prag),
+    ...selecionar('fon',    alvos.fon    - contaNaAula.fon)
+  ];
+
+  if (novos.length === 0) {
+    toast('Nenhum conteúdo novo disponível para complementar essa aula.');
+    return;
+  }
+
+  novos.forEach(it => {
+    STATE().aulas[curso][aula].push({ instanceId: novoId(), itemId: it.id });
+  });
+
+  STATE().aulaFocada = { curso, aula };
+
+  salvar();
+  renderGrade();
+  atualizarMatches();
+
+  // Mensagem informativa ao docente
+  const nomeTema = NOMES_TEMAS()[temaAncora] || temaAncora;
+  let etiqueta = '';
+  if (origemTema === 'curva sugerida')      etiqueta = ' (curva)';
+  else if (origemTema === 'tema livre')     etiqueta = ' (livre)';
+  else if (origemTema === 'aula atual (recursos)') etiqueta = ' (inferido)';
+  toast(`Combinação gerada — "${nomeTema}"${etiqueta} (+${novos.length} conteúdos)`);
+}
+
+function atualizarMatches() {
+  // Limpar destaques anteriores
+  document.querySelectorAll('.biblioteca .item').forEach(el => {
+    el.classList.remove('match', 'match-amber');
+  });
+
+  // Coletar itens de referência por ordem de prioridade:
+  //   1) DRAGGING (temporário, enquanto arrasta)
+  //   2) STATE().itemSelecionado (clique persistente — biblioteca ou aula)
+  //   3) STATE().aulaFocada (foco em aula)
+  let itensReferencia = [];
+  if (DRAGGING && DRAGGING.tipo === 'biblioteca') {
+    const it = getItem(DRAGGING.itemId);
+    if (it) itensReferencia.push(it);
+  } else if (STATE().itemSelecionado) {
+    const it = getItem(STATE().itemSelecionado.itemId);
+    if (it) itensReferencia.push(it);
+  } else if (STATE().aulaFocada) {
+    const { curso, aula } = STATE().aulaFocada;
+    STATE().aulas[curso][aula].forEach(inst => {
+      const it = getItem(inst.itemId);
+      if (it) itensReferencia.push(it);
+    });
+  }
+
+  if (itensReferencia.length === 0) return;
+
+  const idsReferencia = new Set(itensReferencia.map(i => i.id));
+
+  // Apenas itens da camada INTERMEDIÁRIA (propósitos/gêneros) propagam matches,
+  // respeitando a leitura de cima para baixo da arquitetura do módulo.
+  const refsIntermediarias = itensReferencia.filter(it => CAMADAS[it.cat] === 'intermediaria');
+
+  // Se não há propósito nem gênero na referência, nenhum destaque é acionado.
+  if (refsIntermediarias.length === 0) return;
+
+  // Temas acionados pelos itens intermediários de referência
+  const temasAcionados = new Set();
+  refsIntermediarias.forEach(it => {
+    if (it.temas) it.temas.forEach(t => temasAcionados.add(t));
+  });
+
+  // Percorrer cada item da biblioteca e decidir sua marcação
+  document.querySelectorAll('.biblioteca .item').forEach(el => {
+    const id = el.dataset.itemId;
+    if (idsReferencia.has(id)) return;
+    const targetIt = getItem(id);
+    if (!targetIt || !targetIt.temas) return;
+
+    const targetCamada = CAMADAS[targetIt.cat];
+
+    if (targetCamada === 'intermediaria') {
+      // ÂMBAR: interdependência propósito ↔ gênero
+      // Destaca apenas se há referência de CATEGORIA DIFERENTE compartilhando tema
+      const haRefOutraCategoria = refsIntermediarias.some(refIt =>
+        refIt.cat !== targetIt.cat &&
+        refIt.temas && refIt.temas.some(t => targetIt.temas.includes(t))
+      );
+      if (haRefOutraCategoria) el.classList.add('match-amber');
+    }
+    else if (targetCamada === 'inferior') {
+      // VERDE: fluxo descendente — recursos mobilizados pelo propósito/gênero
+      const compartilha = targetIt.temas.some(t => temasAcionados.has(t));
+      // Exceção: recursos com tema "prosódia de base" são sempre mobilizados
+      // quando há qualquer propósito/gênero em cena
+      const ehBase = targetIt.temas.includes(TEMAS_MOD().BASE);
+      if (compartilha || ehBase) el.classList.add('match');
+    }
+  });
+}
+
+/* =========================================================================
+   BUSCA
+   ========================================================================= */
+document.getElementById('busca').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase().trim();
+  document.querySelectorAll('.biblioteca .item').forEach(el => {
+    const txt = el.textContent.toLowerCase();
+    if (!q || txt.includes(q)) el.classList.remove('hidden-search');
+    else el.classList.add('hidden-search');
+  });
+});
+
+/* =========================================================================
+   AÇÕES DE TOPO
+   ========================================================================= */
+function exportarJSON() {
+  const codigo = moduloAtivo;
+  const codigoFS = codigo.replace('.', '_');  // 'A1.1' → 'A1_1' para nome de arquivo
+  const dados = {
+    versao: 1,
+    gerado: new Date().toISOString(),
+    modulo: codigo,
+    aulas: STATE().aulas,
+    customItems: STATE().customItems,
+    // versão legível
+    legivel: gerarResumoTexto()
+  };
+  const blob = new Blob([JSON.stringify(dados, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'progressao_' + codigoFS + '_' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('Módulo ' + codigo + ' exportado');
+}
+
+function gerarResumoTexto() {
+  const out = [];
+  CURSOS.forEach(curso => {
+    out.push('=== ' + curso + ' ===');
+    STATE().aulas[curso].forEach((items, i) => {
+      out.push('\nAula ' + (i+1) + ':');
+      if (items.length === 0) { out.push('  (vazia)'); return; }
+      items.forEach(inst => {
+        const it = getItem(inst.itemId);
+        if (it) {
+          const label = it.label.replace(/<[^>]+>/g, '');
+          out.push('  [' + it.cat + '] ' + label);
+        }
+      });
+    });
+    out.push('');
+  });
+  return out.join('\n');
+}
+
+function importarJSON() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'application/json';
+  input.onchange = e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      try {
+        const dados = JSON.parse(ev.target.result);
+        // Se o arquivo especifica um módulo diferente do ativo, avisar
+        if (dados.modulo && dados.modulo !== moduloAtivo) {
+          const trocar = confirm(
+            'Este arquivo é do módulo ' + dados.modulo + ', mas você está no ' + moduloAtivo + '.\n\n' +
+            'Trocar para o módulo ' + dados.modulo + ' e importar?\n' +
+            '(Cancelar = importar no módulo atual mesmo assim, o que pode resultar em perda de dados.)'
+          );
+          if (trocar && MODULOS_DISPONIVEIS.includes(dados.modulo)) {
+            trocarModulo(dados.modulo);
+          }
+        }
+        if (dados.aulas) STATE().aulas = dados.aulas;
+        if (dados.customItems) STATE().customItems = dados.customItems;
+        salvar();
+        renderBiblioteca();
+        renderGrade();
+        toast('Importado para ' + moduloAtivo);
+      } catch(err) {
+        toast('Arquivo inválido');
+      }
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
+
+function imprimir() {
+  window.print();
+}
+
+function resetarTudo() {
+  if (!confirm('Tem certeza? Isso apagará a distribuição e os conteúdos próprios APENAS do módulo ' + moduloAtivo + '. Os outros módulos permanecem intactos.')) return;
+  STATE().aulas = {
+    CLC: Array.from({length: NUM_AULAS}, () => []),
+    PLC: Array.from({length: NUM_AULAS}, () => [])
+  };
+  STATE().customItems = [];
+  STATE().aulaFocada = null;
+  STATE().itemSelecionado = null;
+  salvar();
+  renderBiblioteca();
+  renderGrade();
+  toast('Módulo ' + moduloAtivo + ' reiniciado');
+}
+
+/* =========================================================================
+   ABAS / TROCA DE MÓDULO
+   ========================================================================= */
+function renderAbas() {
+  document.querySelectorAll('.aba[data-mod]').forEach(b => {
+    b.classList.toggle('ativa', b.dataset.mod === moduloAtivo);
+  });
+}
+
+function atualizarCabecalho() {
+  const mod = MOD();
+  document.getElementById('top-code').textContent = mod.codigo;
+  // Subtítulo dinâmico com título do módulo
+  const sub = document.getElementById('top-subtitulo');
+  if (sub) sub.textContent = mod.titulo + ' · 2 × 15h · 10 aulas por curso';
+  document.title = 'Organizador da Progressão ' + mod.codigo + ' — Leitorado Guimarães Rosa';
+}
+
+function trocarModulo(chave) {
+  if (!MODULOS_DISPONIVEIS.includes(chave) || chave === moduloAtivo) return;
+  // Limpar interações transientes ao trocar
+  DRAGGING = null;
+  moduloAtivo = chave;
+  try { localStorage.setItem('progressao_modulo_ativo', moduloAtivo); } catch(e){}
+  renderAbas();
+  atualizarCabecalho();
+  renderBiblioteca();
+  renderGrade();
+  atualizarMatches();
+  toast('Módulo ' + chave + ' ativo');
+}
+
+/* =========================================================================
+   INICIALIZAÇÃO
+   ========================================================================= */
+carregar();
+renderAbas();
+atualizarCabecalho();
+renderBiblioteca();
+renderGrade();
+</script>
+
+</body>
+</html>
